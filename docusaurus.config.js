@@ -87,19 +87,14 @@ module.exports = {
           ],
         },
       ],
-      copyright: `This mirror is maintained by <a href="https://github.com/benclmnt" target="_blank" rel="noopener noreferrer">Bennett Clement</a>.`,
+      copyright: `Made by <a href="https://benclmnt.com" target="_blank" rel="noopener noreferrer">Ben</a>.`,
     },
-    announcementBar: {
-      id: "outdated",
-      content: 'These docs might contain some outdated information from 2020. If you are an NUS freshman, please fill in <a target="_blank" rel="noopener noreferrer" href="https://tinyurl.com/PINUSFreshman2021">this survey</a>',
-      isCloseable: false,
-      backgroundColor: "#ffba00",
-    },
-    gtag: {
-      trackingID: 'G-PDF8GH7GWE',
-      // Optional fields.
-      anonymizeIP: false, // Should IPs be anonymized?
-    },
+    // announcementBar: {
+    //   id: "outdated",
+    //   content: 'These docs might contain some outdated information from 2020. If you are an NUS freshman, please fill in <a target="_blank" rel="noopener noreferrer" href="https://tinyurl.com/PINUSFreshman2021">this survey</a>',
+    //   isCloseable: false,
+    //   backgroundColor: "#ffba00",
+    // },
   },
   presets: [
     [
@@ -117,16 +112,29 @@ module.exports = {
         sitemap: {
           changefreq: 'weekly',
           priority: 0.5,
-          trailingSlash: false,
-        }
+        },
+        gtag: {
+          trackingID: 'G-PDF8GH7GWE',
+          // Optional fields.
+          anonymizeIP: false, // Should IPs be anonymized?
+        },
       },
     ],
   ],
   plugins: [
-    '@docusaurus/plugin-ideal-image',
-    [require.resolve('@cmfcmf/docusaurus-search-local'), {
-      indexBlog: false,
-      docsRouteBasePath: '/docs'
-    }]
+    // '@docusaurus/plugin-ideal-image',
   ],
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'), ({
+        indexBlog: false,
+        hashed: true,
+        docsRouteBasePath: '/docs'
+      }),
+    ],
+  ],
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'id'],
+  },
 };
